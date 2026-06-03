@@ -8,7 +8,7 @@
   <meta name="googlebot" content="noindex, nofollow" />
 
   <!-- LCP: pré-carrega a 1ª imagem do hero -->
-  <link rel="preload" as="image" href="./assets/images/hero-card1.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="./assets/images/hero-card1.webp" fetchpriority="high" />
 
   <!-- Fontes (assíncrono, sem bloquear o render) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,6 +17,23 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Display:ital,wght@1,600&display=swap" /></noscript>
 
   <style>
+    /* ─── FALLBACKS COM MÉTRICA AJUSTADA (anti-CLS na troca de fonte) ─── */
+    @font-face {
+      font-family: 'Poppins-fallback';
+      src: local('Arial');
+      size-adjust: 112.15%; ascent-override: 93.62%; descent-override: 31.21%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'Barlow-fallback';
+      src: local('Arial');
+      size-adjust: 96%; ascent-override: 105%; descent-override: 26%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'NotoSerif-fallback';
+      src: local('Georgia');
+      size-adjust: 97%; ascent-override: 100%; descent-override: 27%; line-gap-override: 0%;
+    }
+
     /* ─── TOKENS ─────────────────────────────────────── */
     :root {
       --pink-light:   #F9F6F5;
@@ -29,9 +46,9 @@
       --gray:         #A69DA2;
       --gray-light:   #F0EDED;
       --white:        #FFFFFF;
-      --font-title:   'Poppins', sans-serif;
-      --font-body:    'Barlow', sans-serif;
-      --font-display: 'Noto Serif Display', serif;
+      --font-title:   'Poppins', 'Poppins-fallback', sans-serif;
+      --font-body:    'Barlow', 'Barlow-fallback', sans-serif;
+      --font-display: 'Noto Serif Display', 'NotoSerif-fallback', serif;
       --radius-sm:    8px;
       --radius-md:    16px;
       --radius-lg:    40px;
@@ -1096,7 +1113,7 @@
   <!-- ░░ NAV ░░ -->
   <nav class="nav" aria-label="Navegação principal">
     <div class="nav-logo" aria-label="Hidrabene">
-      <img src="./assets/brand/logo-hidrabene-nav.png" alt="Hidrabene" width="280" height="47" />
+      <img src="./assets/brand/logo-hidrabene-nav.webp" alt="Hidrabene" width="280" height="47" />
     </div>
     <button class="nav-cta" onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' })">Comprar agora</button>
   </nav>
@@ -1107,10 +1124,10 @@
       <div class="carousel-wrap">
         <div class="carousel-track">
           <div class="carousel-slide">
-            <img src="./assets/images/hero-card1.jpg" alt="Protetor Solar Facial FPS 70 Clareador — antes e depois" width="1228" height="1400" fetchpriority="high" loading="eager" />
+            <img src="./assets/images/hero-card1.webp" alt="Protetor Solar Facial FPS 70 Clareador — antes e depois" width="1228" height="1400" fetchpriority="high" loading="eager" />
           </div>
           <div class="carousel-slide">
-            <img src="./assets/images/hero-card3.jpg" alt="Resultado de pele uniforme com o Protetor Solar Facial FPS 70 Clareador" loading="lazy" />
+            <img src="./assets/images/hero-card3.webp" alt="Resultado de pele uniforme com o Protetor Solar Facial FPS 70 Clareador" width="800" height="1018" loading="lazy" />
           </div>
         </div>
         <div class="carousel-dots" aria-hidden="true">
@@ -1145,11 +1162,11 @@
   <section class="ugc-section" aria-label="Quem usa">
     <p class="ugc-label">Quem usa e aprova</p>
     <div class="ugc-scroll" role="list">
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-ugc-1.jpg"><source src="./assets/video/ugc/u1.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-ugc-2.jpg"><source src="./assets/video/ugc/u2.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-ugc-3.jpg"><source src="./assets/video/ugc/u3.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-ugc-4.jpg"><source src="./assets/video/ugc/u4.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-ugc-5.jpg"><source src="./assets/video/ugc/u5.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-1.webp"><source src="./assets/video/ugc/u1.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-2.webp"><source src="./assets/video/ugc/u2.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-3.webp"><source src="./assets/video/ugc/u3.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-4.webp"><source src="./assets/video/ugc/u4.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-5.webp"><source src="./assets/video/ugc/u5.mp4" type="video/mp4" /></video></div>
     </div>
   </section>
 
@@ -1185,7 +1202,7 @@
 
     <!-- Vídeo demonstrativo — parte da seção -->
     <div class="antes-depois-video">
-      <video class="vid-inview" muted loop playsinline webkit-playsinline preload="none" poster="./assets/images/poster-antes-depois.jpg">
+      <video class="vid-inview" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-antes-depois.webp">
         <source src="./assets/video/antes-depois.mp4" type="video/mp4" />
       </video>
       <button type="button" class="sound-toggle" aria-pressed="false" aria-label="Ativar som" onclick="toggleSound(this)">
@@ -1246,7 +1263,7 @@
   </section>
 
   <!-- Infográfico de benefícios -->
-  <img class="beneficios-img" src="./assets/images/beneficios-foto.jpg" alt="Benefícios do Protetor Solar Facial FPS 70 Clareador" width="673" height="853" loading="lazy" />
+  <img class="beneficios-img" src="./assets/images/beneficios-foto.webp" alt="Benefícios do Protetor Solar Facial FPS 70 Clareador" width="673" height="853" loading="lazy" />
 
   <!-- ░░ ATIVOS ░░ -->
   <section class="ativos-section section-pad" aria-label="Principais ativos">
@@ -1279,7 +1296,7 @@
 
   <!-- Foto de textura/produto sobre fundo escuro (continuidade da seção de ativos) -->
   <div style="background: var(--dark); padding: 0 20px 40px; text-align: center;">
-    <img src="./assets/images/oferta-2.jpg" alt="Modelo aplicando o Protetor Solar Facial FPS 70 Clareador no rosto" loading="lazy" style="max-width:320px; width:100%; margin:0 auto; border-radius:var(--radius-md); display:block;" />
+    <img src="./assets/images/oferta-2.webp" alt="Modelo aplicando o Protetor Solar Facial FPS 70 Clareador no rosto" loading="lazy" style="max-width:320px; width:100%; margin:0 auto; border-radius:var(--radius-md); display:block;" />
     <p style="font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 12px;">Loção incolor, leve e de rápida absorção — toque seco matte.</p>
   </div>
 
@@ -1380,7 +1397,7 @@
       <!-- 1 unidade -->
       <div class="kit-card" role="listitem">
         <span class="kit-off">-30%</span>
-        <div class="kit-media"><img src="./assets/images/kit-1un.jpg" alt="Protetor Solar Facial FPS 70 Clareador — 1 unidade" width="520" height="659" loading="lazy" /></div>
+        <div class="kit-media"><img src="./assets/images/kit-1un.webp" alt="Protetor Solar Facial FPS 70 Clareador — 1 unidade" width="520" height="659" loading="lazy" /></div>
         <p class="kit-name">1 unidade</p>
         <p class="kit-sub">Tratamento de 1 mês</p>
         <div class="kit-unit">
@@ -1395,7 +1412,7 @@
       <div class="kit-card" role="listitem">
         <span class="kit-banner alt">Mais vendido</span>
         <span class="kit-off">-45%</span>
-        <div class="kit-media"><img src="./assets/images/kit-2un.jpg" alt="Protetor Solar Facial FPS 70 Clareador — kit com 2 unidades" width="520" height="650" loading="lazy" /></div>
+        <div class="kit-media"><img src="./assets/images/kit-2un.webp" alt="Protetor Solar Facial FPS 70 Clareador — kit com 2 unidades" width="520" height="650" loading="lazy" /></div>
         <p class="kit-name">2 unidades</p>
         <p class="kit-sub">Tratamento de 2 meses</p>
         <div class="kit-unit">
@@ -1410,7 +1427,7 @@
       <div class="kit-card featured" role="listitem">
         <span class="kit-banner">Melhor custo-benefício</span>
         <span class="kit-off">-50%</span>
-        <div class="kit-media"><img src="./assets/images/kit-3un.jpg" alt="Protetor Solar Facial FPS 70 Clareador — kit com 3 unidades" width="520" height="650" loading="lazy" /></div>
+        <div class="kit-media"><img src="./assets/images/kit-3un.webp" alt="Protetor Solar Facial FPS 70 Clareador — kit com 3 unidades" width="520" height="650" loading="lazy" /></div>
         <p class="kit-name">3 unidades</p>
         <p class="kit-sub">Tratamento de 3 meses</p>
         <div class="kit-unit">
@@ -1424,10 +1441,10 @@
 
     <!-- Selos da marca -->
     <div class="seals-strip" role="list" aria-label="Certificações da marca">
-      <img src="./assets/brand/selo-cruelty-free-vegan.png" alt="Cruelty free e vegano" loading="lazy" />
-      <img src="./assets/brand/selo-derm-testado.png" alt="Dermatologicamente testado" loading="lazy" />
-      <img src="./assets/brand/selo-im-green.png" alt="I'm green — plástico de origem vegetal" loading="lazy" />
-      <img src="./assets/brand/selo-industria-brasileira.png" alt="Indústria brasileira" loading="lazy" />
+      <img src="./assets/brand/selo-cruelty-free-vegan.webp" alt="Cruelty free e vegano" loading="lazy" />
+      <img src="./assets/brand/selo-derm-testado.webp" alt="Dermatologicamente testado" loading="lazy" />
+      <img src="./assets/brand/selo-im-green.webp" alt="I'm green — plástico de origem vegetal" loading="lazy" />
+      <img src="./assets/brand/selo-industria-brasileira.webp" alt="Indústria brasileira" loading="lazy" />
     </div>
   </section>
 
@@ -1520,7 +1537,7 @@
   <!-- ░░ FOOTER ░░ -->
   <footer class="footer" aria-label="Rodapé">
     <div class="footer-logo" aria-label="Hidrabene Derma">
-      <img src="./assets/brand/logo-hidrabene-derma.png" alt="Hidrabene Derma" width="280" height="72" />
+      <img src="./assets/brand/logo-hidrabene-derma.webp" alt="Hidrabene Derma" width="280" height="72" />
     </div>
 
     <div class="footer-social" aria-label="Redes sociais">
@@ -1559,16 +1576,26 @@
       });
     })();
 
-    // Autoplay de vídeos (UGC + antes/depois) só quando visíveis na tela
+    // Autoplay de vídeos (UGC + antes/depois) só quando visíveis na tela.
+    // iOS/Safari só faz autoplay inline com o vídeo muted de fato — por isso forçamos
+    // a propriedade muted antes de cada play() (não basta o atributo no HTML).
     (function () {
       const vids = document.querySelectorAll('.ugc-video, .vid-inview');
-      if (!('IntersectionObserver' in window) || !vids.length) return;
+      if (!vids.length) return;
+
+      function tryPlay(v) {
+        if (!v.dataset.userSound) { v.muted = true; v.defaultMuted = true; }
+        const p = v.play();
+        if (p && p.catch) p.catch(() => { try { v.load(); v.play().catch(() => {}); } catch (e) {} });
+      }
+
+      if (!('IntersectionObserver' in window)) { vids.forEach(tryPlay); return; }
       const io = new IntersectionObserver(entries => {
         entries.forEach(e => {
-          if (e.isIntersecting) { e.target.play().catch(() => {}); }
-          else { e.target.pause(); }
+          if (e.isIntersecting) tryPlay(e.target);
+          else e.target.pause();
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.25 });
       vids.forEach(v => io.observe(v));
     })();
 
@@ -1578,6 +1605,7 @@
       if (!v) return;
       v.muted = !v.muted;
       const on = !v.muted;
+      if (on) { v.dataset.userSound = '1'; } else { delete v.dataset.userSound; }
       btn.classList.toggle('is-on', on);
       btn.setAttribute('aria-pressed', String(on));
       btn.setAttribute('aria-label', on ? 'Desativar som' : 'Ativar som');
